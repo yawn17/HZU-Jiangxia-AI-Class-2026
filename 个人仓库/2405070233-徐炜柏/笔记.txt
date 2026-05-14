@@ -1,0 +1,21 @@
+1.对象可视为一个模板，而对象的实例化比作用模板造一个真正的事物
+
+2.pv(page visit):每次点击一个页面都是一次pv
+
+3.uv(user visit):一个独立ip是一个uv
+
+4.面向过程编程在处理复杂代码的时候会出现代码臃肿和拓展性变差的情况
+
+5.类的属性与方法调用：实例.属性/方法
+
+6.__init__作为构造方法在类的实例化时会自动执行，进行一些初始化操作，可以在此绑定该实例和传进来的属性
+
+7.实例属性只能通过实例.属性名来调用，类属性还可以用类名.属性名来调用
+
+8.假设people中有个类属性nationality="cn"，p作为people的一个实例，p.nationality="jp"后相当于给p实例创建了一个新的实例属性，类比为在p的构造方法中加入一个self.nationality=jp
+
+9.在安装cuda和深度学习所需环境时，可以直接用：pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+
+10.对于torch中如果直接使用torch.arange(20)，该张量的元素都是int64的，但是mean方法是对float32生效,需要在20后加一个dtype=torch.float32
+
+11.全为1的张量求和中，axis=几 就是把哪个轴划掉，但是如果是keepdims=True，那么就把对应的轴变成1

@@ -1,0 +1,43 @@
+一、核心内容
+1.版本库 ：即仓库，是一个能被Git跟踪管理所有文件修改历史的目录。初始化命令：在目标目录下执行 git init，将其变为Git仓库。
+2.两步提交：添加文件到仓库必须分两步。git add <file>：将文件修改添加到暂存区。git commit -m "message"：将暂存区所有内容正式提交到当前分支，生成一个版本快照。原因：commit可以一次性提交暂存区内的多个文件，因此可以多次 add不同文件，最后统一提交。
+3.git status：随时查看工作区和暂存区的状态。
+git diff：当 git status提示有文件被修改但未暂存时，用此命令查看文件具体修改了哪些内容。
+4.git log：查看提交历史，以便确定要回退到的版本号。
+git reset --hard commit_id：将当前版本回退（或前进）到指定的版本。
+git reflog：查看所有操作命令的历史，包括已“回退”掉的版本。
+5.场景1（未add）：丢弃工作区的修改：git checkout -- <file>。
+场景2（已add）：丢弃暂存区的修改，分两步：（1) git reset HEAD <file>（2) 再按场景1操作。
+场景3（已commit）：利用版本回退（git reset）撤销提交。
+删除文件：git rm <file>并从版本库中提交此次删除。误删后可用 git checkout -- <file>恢复。
+
+二、思考
+暂存区让我可以把不同文件的改动先放进去，最后用一次有意义的 commit说明打包提交，让版本历史清晰得多。checkout、reset和 reflog这套组合则让我知道了在版本历史里任何提交过的改动都能找回。
+
+三、Demo
+# 1. 创建版本库
+mkdir my_project
+cd my_project
+git init  
+# 2. 添加文件到版本库 
+echo "Hello Git" > readme.txt 
+git add readme.txt            
+git commit -m "add readme.txt" 
+# 3. 查看状态与修改
+git status               
+git diff readme.txt         
+# 4. 版本回退演练
+git log --oneline         
+# 假设commit_id 为 abc123
+git reset --hard abc123     
+# 5. 撤销修改演练
+# 场景1：文件修改后，想丢弃工作区的改动
+git checkout -- readme.txt
+# 场景2：文件修改后已 add 到暂存区，想丢弃
+git reset HEAD readme.txt    
+git checkout -- readme.txt    # 第二步：丢弃工作区的修改
+# 6. 删除文件
+git rm test.txt         
+git commit -m "remove test.txt"
+# 误删恢复（未 commit 前）
+git checkout -- test.txt

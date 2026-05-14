@@ -1,0 +1,55 @@
+一、核心内容
+1.分支管理
+创建并切换分支：git switch -c <branch_name>
+查看分支：git branch
+合并分支：git merge <branch_name>
+删除分支：git branch -d <branch_name>
+2.解决合并冲突
+当不同分支修改了同一文件的同一区域，合并时会产生冲突。
+需要手动打开冲突文件，选择保留的内容，删除Git插入的冲突标记，然后重新提交。
+3.分支策略与工作流
+master分支应保持稳定，仅用于发布。日常开发在 dev分支上进行。每个新功能或修复最好创建单独的分支，完成后合并回 dev。使用 git merge --no-ff可以保留分支合并历史。
+4.Bug分支与现场保存
+临时切换任务时，可用 git stash保存当前未完成的工作。修复紧急Bug时，从master创建临时分支，修复后用 git cherry-pick将提交应用到dev分支。任务完成后，用 git stash pop恢复之前的工作。
+5.Rebase
+用于整理本地未推送的提交历史，使其成为一条直线。重要原则：只对尚未推送到远程的分支进行变基。
+6.标签管理
+创建标签：git tag <tagname>或 git tag -a <tagname> -m “message”。
+查看标签：git tag。
+推送标签：git push origin <tagname>或 git push origin --tags。
+删除标签：git tag -d <tagname>，远程删除需要单独命令。
+
+二、思考
+分支和标签改变了我的工作方式。以前所有修改都在一条支线上，现在可以在不同分支上尝试新功能，这让多人协作变得非常顺畅。并且标签给重要版本打上标记，比记commit id方便。Rebase让我知道提交历史也可以整理得很好。
+
+三、Demo
+# 1. 分支基础：创建、切换、查看、合并、删除
+git switch -c feature-x       
+git branch                    
+git switch main                
+git merge feature-x            
+git branch -d feature-x        
+# 2. 处理合并冲突
+git add resolved-file.txt
+git commit -m “merge and resolve conflict”
+# 3. 非快进合并，保留分支历史
+git merge --no-ff feature-y
+# 4. 保存与恢复工作现场
+git stash                    
+git switch -c hotfix-1.0      
+#  修复Bug并提交 
+git switch main
+git merge hotfix-1.0         
+git switch dev
+git cherry-pick <commit_id>  
+git switch original-branch
+git stash pop                  
+# 5. Rebase 
+git switch my-feature
+git rebase main               
+# 6. 标签管理
+git tag v2.1.0                
+git tag -a v2.1.0 -m “正式发布版本2.1.0”
+git push origin v2.1.0        
+git push origin --tags        
+git tag -d v2.0.0-rc1        

@@ -1,0 +1,15 @@
+   49  git status
+   50  cd learngit
+   51  pwd
+   52  git status
+   53  ls
+   54  vi readme.txt
+   55  git status
+   56  touch LICENSE
+   57  VI LICENSE
+   58  git status
+   59  git add readme.txt
+   60  git add LICENSE
+   61  git status
+   62  git commit -m "understand how stage works"
+   63  git status

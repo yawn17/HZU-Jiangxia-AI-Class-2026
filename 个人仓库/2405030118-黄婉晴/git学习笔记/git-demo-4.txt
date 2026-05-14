@@ -1,0 +1,17 @@
+   72  ssh-keygen -t rsa -C "2017835861@qq.com"
+   73  ls -a
+   74  cd ..
+   75  cd /
+   76  ls
+   77  cd learngit
+   78  ls
+   79  git remote add origin https://github.com/Qing011/learngit.git
+   80  git branch -M main
+   81  git push -u origin main
+   82  git push -u origin main
+   83  git push -u origin main
+   84  git log
+   85  ls /
+   86  cd /
+   87  git clone https://github.com/Qing011/gitskills.git
+   88  cd gitskills

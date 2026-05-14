@@ -1,0 +1,22 @@
+git init					初始化本地仓库
+git add readme.txt			添加文件到暂存区
+git add					添加所有文件到暂存区
+git commit -m "提交说明"	提交到本地仓库
+git status					查看仓库状态
+git diff readme.txt			查看文件修改内容
+git log					查看提交历史
+git reset --hard HEAD^		回退到上一版本
+git reset --hard (版本号)		回退到指定版本
+git restore readme.txt		撤销工作区修改
+git branch				查看所有分支
+git switch -c dev			创建并切换分支
+git switch master			切换到master分支
+git merge dev				合并dev分支到当前分支
+git branch -d dev			删除分支
+git stash					暂存工作区
+git stash pop				恢复暂存内容
+git remote add origin (仓库网址)		关联远程仓库
+git push -u origin master	第一次推送master分支
+git push origin dev			推送指定分支
+git clone 	(仓库网址)		克隆远程仓库
+git pull origin dev			拉取远程代码

@@ -1,0 +1,44 @@
+一、核心内容
+1.远程仓库基础
+关联远程库：git remote add origin <远程仓库地址>，将本地仓库与一个远程仓库建立连接。
+首次推送：git push -u origin master（-u参数关联上游分支，后续推送可简化为 git push）。
+从远程克隆：git clone <远程仓库地址>，直接获取完整的项目仓库。
+2.远程协作核心
+git push：将本地提交推送到远程仓库。
+git pull：从远程仓库拉取最新提交并合并到当前分支（=git fetch+ git merge）。
+查看远程库信息：git remote -v。
+解除远程关联：git remote rm origin。
+3.参与开源项目
+Fork：将他人的项目仓库复制一份到自己的账户下，获得读写权限。
+克隆：从自己账户下 clone项目到本地进行修改。
+发起 Pull Request (PR)：修改完成后，向原仓库发起“拉取请求”，请求对方合并你的贡献。
+4.管理多个远程仓库
+一个本地仓库可以关联多个远程仓库。关联时需为每个远程仓库起不同的名字。推送时需指定远程仓库名：git push github master或 git push gitee master。
+
+二、 Demo
+# 1. 基础远程操作：关联、推送、克隆
+git remote add origin git@github.com:yourname/repo.git
+git push -u origin master
+git push
+git clone git@github.com:someone/project.git
+
+# 2. 查看与解除远程关联
+git remote -v                
+git remote rm origin      
+
+# 3. 参与开源项目
+git clone git@github.com:YOUR_NAME/project.git
+cd project
+git add .
+git commit -m "fix a bug"
+git push origin master
+
+# 4. 一个本地仓库关联多个远程
+git remote rm origin
+git remote add github git@github.com:yourname/repo.git
+git remote add gitee git@gitee.com:yourname/repo.git
+git remote -v
+git push github master
+git push gitee master
+git pull github master
+git pull gitee master

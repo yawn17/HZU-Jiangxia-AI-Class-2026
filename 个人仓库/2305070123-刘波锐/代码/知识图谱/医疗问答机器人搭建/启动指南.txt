@@ -1,0 +1,6 @@
+需要先启动NLU/Medical_intention/app.py
+NLU/Slot_filling/solt_app.py
+还有neo4j console
+
+最后找到main
+终端streamlit run "D:\大三上\08 正课 红蜘蛛知识图谱项目3.0-V6-25年7月版本-12天-AI版本\liu_Medical_KG\main.py"

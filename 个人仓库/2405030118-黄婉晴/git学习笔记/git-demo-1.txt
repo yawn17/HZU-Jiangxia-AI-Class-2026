@@ -1,0 +1,21 @@
+    4  git config --global user.name "Huang Wanqing"
+    5  git config --global user.email "2017835861@qq.com"
+    6  pwd
+    7  ls
+    8  ls-al
+    9  ls-a
+   10  ls -a
+   11  mkdir learngit
+   12  cd learngit
+   13  pwd
+   14  git init
+   15  ls -a
+   16  ls -al
+   17  pwd
+   18  cd learngit
+   19  pwd
+   20  git status
+   21  touch readme.txt
+   22  vim readme.txt
+   23  git add readme.txt
+   24  git commit -m "wrote a readme file"
